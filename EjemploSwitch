@@ -1,0 +1,34 @@
+#include <iostream>
+
+int main() {
+  int dia;
+  std::cout << "Ingrese un numero que represente un dia de la semana\n";
+  std::cin>>dia;
+
+  switch (dia){
+    case 1: 
+            std::cout<<"El dia de la semana es Lunes";
+            break;
+    case 2: 
+            std::cout<<"El dia de la semana es Martes";
+            break;
+    case 3: 
+            std::cout<<"El dia de la semana es Miercoles";
+            break;
+    case 4: 
+            std::cout<<"El dia de la semana es Jueves";
+            break;
+    case 5: 
+            std::cout<<"El dia de la semana es Viernes";
+            break;
+    case 6: 
+            std::cout<<"El dia de la semana es Sabado";
+            break;
+    case 7: 
+            std::cout<<"El dia de la semana es Domingo";
+            break;
+    default:
+            std::cout<<"No se ha encontrado valor";
+    
+  }
+}
