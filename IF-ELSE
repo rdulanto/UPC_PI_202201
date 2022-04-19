@@ -1,0 +1,29 @@
+#include <iostream>
+
+int main() {
+  int edad;
+  std::cout<<"Ingresa tu edad: \n";
+  std::cin>>edad;
+
+  //evaluar la edad y si es menor de 18, entonces es menor de edad
+  //si es mayor igual a 18 es mayor de edad
+  // si es mayor a 55 entonces es una persona jubilada
+
+  if (edad <= 18) {
+    std::cout<<"Tu edad es: "<< edad << "\n";
+    std::cout<<"Eres menor de edad\n";
+    }
+  else {
+    if (edad <=55){
+      std::cout<<"Tu edad es: "<< edad << "\n";
+      std::cout<<"Eres mayor de edad\n";      
+    }
+    else {
+        std::cout<<"Tu edad es: "<< edad << "\n";
+        std::cout<<"Eres una persona jubilada\n";
+    }
+
+    
+  }
+  
+}
