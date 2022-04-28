@@ -1,0 +1,35 @@
+#include <iostream>
+
+using namespace std;
+
+/*
+Escriba un programa en C++ que calcule e imprima la suma todos los números impares
+desde cero hasta un número N dado como dato.
+Ejemplo:
+Ingrese N: 10
+La suma es 1 + 3 + 5 + 7 + 9 = 25
+
+
+*/
+
+int main() {
+  int num, sum=0, cant, veces=0;
+
+  cout<<"Ingrese la cantidad de numeros: "<<endl;
+  cin>>cant;
+  
+  for(num=1; num<=cant;num+=2){
+    veces++;
+    sum = sum + num; 
+
+    if (num<cant){
+      cout<<num << "+";
+    }
+    else{
+      cout<<num<<" = "<<sum<<endl; 
+    }
+  }
+
+  cout<<endl<<"La suma de los "<<veces<<" numeros impares menor igual a "<< cant << " es: "<< sum<< endl;
+  
+}
