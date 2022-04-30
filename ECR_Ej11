@@ -1,0 +1,101 @@
+#include <iostream>
+using namespace std;
+/*
+Nombre:
+Código:
+Curso:
+Tema: Estructuras de control repetitiva
+Enunciado ejercicio:
+  Escriba un programa en C++ que calcule e imprima el valor de la sumatoria de los N
+  primeros términos de la serie.
+  Ejemplo:
+  Ingrese N: 3
+  La suma es: 1.75
+*/
+
+void primerIntento();
+void nuevaFuncion();
+
+int main() {
+
+	nuevaFuncion();
+    return 0;
+
+}
+
+void primerIntento() {
+	int num, j, cant;
+	double calc, denominador = 1, sum = 0;
+
+	// 1/1 +  1/2 +  1/4  + 1/8
+
+	// 2°0     2°1    2°2    2°3
+
+
+	cout << "Ingrese la cantidad de terminos de la serie:" << endl;
+	cin >> cant;
+
+	for (num = 0; num < cant; num++) {
+
+		if (num == 0) {
+			calc = 1;
+
+		}
+		else { //num==2
+			for (j = 1; j <= num; j++) {
+				denominador = denominador * 2;
+			}
+			calc = 1 / denominador;
+			cout << "denominador: " << calc << endl;
+			denominador = 1;
+		}
+
+		sum += calc;
+
+	}
+
+	cout << "\nEl resultado de la operacion es: " << sum;
+
+}
+
+void nuevaFuncion() {
+	float contador, denominador, numerador, fraccion, N, resultado;
+	resultado = 1;
+	denominador = 1;
+	numerador = 1;
+	fraccion = 0;
+	cout << "Ingrese un numero: "; cin >> N;
+	cout << endl;
+
+	for (contador = 1; contador <= N; contador++)
+	{
+		if (contador > 1)
+		{
+			fraccion = numerador / denominador;
+		}
+		resultado = fraccion + resultado;
+
+		if (contador == 1)
+		{
+			cout << numerador << " + ";
+		}
+
+		else
+			if (contador < N && contador>1)
+			{
+				cout << numerador << "/" << denominador << " + ";
+			}
+			else
+				if (contador == N)
+				{
+					cout << numerador << "/" << denominador << " = " << " " << resultado;
+
+				}
+		denominador *= 2;
+	}
+	cout << endl;
+	cout << endl;
+
+	cout << "El resultado es: " << resultado;
+	
+}
