@@ -1,0 +1,67 @@
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int valor, aleatorio, veces=1;
+    
+    
+    srand(time(NULL));
+    aleatorio = rand() % 100 +1;
+
+
+    while (veces <= 12) {
+
+        cout << "Intento "<< veces<< " - Ingrese un valor : " << endl;
+        cin >> valor;
+
+        if (valor > aleatorio) {
+            cout << "El número es menor"<< endl;
+            veces++;
+        }
+        else {
+            if (valor < aleatorio) {
+                cout << "El número es mayor" << endl;
+                veces++;
+            }
+            else {
+                cout << "Eres un genio! Acertastes!!"<<endl;
+                break;
+            }
+        }        
+        valor++;
+    }
+
+    switch (veces) {
+    case 1:     cout << "Fue pura suerte ! !"<<endl;
+                break;
+    case 2:     cout << "Fue pura suerte ! !" << endl;
+                break;
+    case 3:     cout << "Fue pura suerte ! !" << endl;
+                break;
+    case 4:     cout << "Eres bueno !" << endl;
+                break;
+    case 5:     cout << "Eres bueno !" << endl;
+                break;
+    case 6:     cout << "Eres bueno !" << endl;
+                break;
+    case 7:     cout << "No está mal" << endl;
+                break;
+    case 8:     cout << "Se puede mejorar" << endl;
+                break;
+    case 9:     cout << "Se puede mejorar" << endl;
+                break;
+    case 10:     cout << "Se puede mejorar" << endl;
+                break;
+    case 11:     cout << "Se puede mejorar" << endl;
+                break;
+    case 12:     cout << "Se puede mejorar" << endl;
+                break;
+    default:    cout << "Que mal estas !!!!";
+    };
+    cout << "\nIntentos realizados: " << veces << endl;
+    
+}
+
+
