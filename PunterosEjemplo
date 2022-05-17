@@ -1,0 +1,17 @@
+#include <iostream>
+using namespace std;
+int main() {
+  int varA, varB, *pVarA, *pVarB;
+
+  varA = 30;
+  varB = 120;
+
+  pVarA = &varA;
+  pVarB = &varB;
+
+  cout<<"valor A es: "<<*pVarA<<" su direccion de mem: "<< pVarA <<endl;
+  cout<<"valor B es: "<<*pVarB<<" su direccion de mem: "<< pVarB <<endl;
+
+
+  
+}
