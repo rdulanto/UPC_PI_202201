@@ -1,0 +1,52 @@
+#include <iostream>
+
+using namespace std;
+
+//declarando funciones
+void sumanumeros();
+int sumanumerosDevuelve();
+int sumanumerosParametro(int, int);
+
+int main() {
+
+  int resSuma, *ptrResSuma, vnum1, vnum2,vRes, *ptrVRes;
+  sumanumeros();
+  
+  resSuma = sumanumerosDevuelve();
+  ptrResSuma = &resSuma;
+  cout<<"\nEl resultado de la suma es: " << resSuma<<endl;
+  cout<<"El resultado se almaceno en: " << ptrResSuma<<endl;
+  cout<<"El valor almacenado en esta direccion es: " << *ptrResSuma;
+
+  cout<<"\n\nIngresa valor 1:";
+  cin>>vnum1;
+  cout<<"Ingresa valor 2:";
+  cin>>vnum2;
+
+  vRes = sumanumerosParametro(vnum1, vnum2);
+  ptrVRes = &vRes;
+  cout<<"\nEl resultado de la suma es: " << vRes<<endl;
+  cout<<"El resultado se almaceno en: " << ptrVRes<<endl;
+  cout<<"El valor almacenado en esta direccion es: " << *ptrVRes;
+  
+  
+  }
+
+//implementando funciones
+void sumanumeros(){
+
+  int num1 =5, num2= 8;
+  cout<<"El resultado de la suma de :" <<num1 << " y " <<num2 << " es: " << num1+num2<<endl;
+}
+
+int sumanumerosDevuelve(){
+
+  int num1=5, num2= 8;
+  return num1 + num2;
+};
+
+int sumanumerosParametro(int n1, int n2){
+
+  return n1+n2;
+  
+}
