@@ -1,0 +1,60 @@
+#include <iostream>
+#include <Windows.h>
+#include <stdlib.h>
+
+//#include <conio.h> 
+
+using namespace std;
+
+//declarando funciones
+void goToXY(int, int);
+void cambiaColor();
+
+int main()
+{
+
+	//Color Consola
+	/*
+	0 negro
+	1 azul
+	2 verde
+	3 aguamarina
+	4 rojo
+	5 purpura
+	6 amarillo
+	7 blanco
+	8 Gris
+	9 azul claro
+
+
+	//Color de Texto
+	A Verde Claro
+	B Aguamarina claro
+	C Rojo Claro
+	D Purpura claro
+	E Amarillo claro
+	F Blanco
+	*/
+	system("color 1F");
+	//cout << "Hello World!\n";
+	goToXY(1, 10);
+    cout << "Hello World!\n";
+
+	//goToXY(15, 15);
+	cambiaColor();
+	cout << "Hello World!\n";
+
+
+}
+
+void goToXY(int x, int y) {
+	COORD c;
+	c.X = x;
+	c.Y = y;
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
+
+}
+
+void cambiaColor() {
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_GREEN | BACKGROUND_BLUE);
+}
