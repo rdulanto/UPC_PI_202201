@@ -5,7 +5,7 @@ using namespace std;
 //declarando funciones
 void sumanumeros();
 int sumanumerosDevuelve();
-int sumanumerosParametro(int, int);
+int sumanumerosParametro(int &, int &);
 
 int main() {
 
@@ -23,11 +23,14 @@ int main() {
   cout<<"Ingresa valor 2:";
   cin>>vnum2;
 
+
+  cout<<"\nLos valores ingresados son: " << vnum1 <<" y "<<vnum2<<endl;
   vRes = sumanumerosParametro(vnum1, vnum2);
   ptrVRes = &vRes;
   cout<<"\nEl resultado de la suma es: " << vRes<<endl;
   cout<<"El resultado se almaceno en: " << ptrVRes<<endl;
   cout<<"El valor almacenado en esta direccion es: " << *ptrVRes;
+  cout<<"\nLos valores actualizados son: " << vnum1 <<" y "<<vnum2<<endl;
   
   
   }
@@ -45,8 +48,11 @@ int sumanumerosDevuelve(){
   return num1 + num2;
 };
 
-int sumanumerosParametro(int n1, int n2){
+//parametros por Referencia: &
+int sumanumerosParametro(int &n1, int &n2){
 
+  n1 += 1;
+  n2 += 5;
   return n1+n2;
   
 }
