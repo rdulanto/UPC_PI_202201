@@ -1,0 +1,169 @@
+#include <iostream>
+#include <Windows.h>
+using namespace std;
+/*
+Escribir un programa que permita leer como dato un número 
+entero de por lo menos 4 dígitos e imprima el número al revés
+
+*/
+
+//declarar funcion
+void DibujaCuadrado(char, int, int, int);
+void goToXY(int, int);
+
+//Ejercicio5
+float solesADolares(float);
+float dolaresASoles(float);
+
+//Ejercicio6
+int invertirNumero(int);
+
+
+//Ejercicio7
+boolean esBisiesto(int);
+int main()
+{
+    /*
+    Ejercicio 3
+    char c;
+    int n, x=4, y=4;
+    cout << "Introduzca el caracter: ";
+    cin >> c;
+
+    cout << "Introduzca el valor de n: ";
+    cin >> n;
+
+    DibujaCuadrado(c,n,x,y);
+    */
+
+    /*Ejercicio 5
+    char tipo;
+    float valor, resultado, *ptrValor;
+    cout << "Introduzca el tipo de operacion a realizar";
+    cout << "\nSoles a dolares: s";
+    cout << "\nDolares a soles: d"<<endl;
+    cin >> tipo;
+
+    cout << "\nIngrese el valor a cambiar"<<endl;
+    cin >> valor;
+
+    if (tipo == 's' || tipo == 'S') {
+        resultado = solesADolares(valor);
+        ptrValor = &resultado;
+        cout<<"\n\nLa conversion es: " << *ptrValor << " dolares";
+        cout << "\n la conversion se almaceno en " << ptrValor << endl;
+
+    }
+    else {
+        if (tipo == 'd' || tipo == 'D') {
+            resultado = dolaresASoles(valor);
+            ptrValor = &resultado;
+            cout << "\nLa conversion es: " << *ptrValor << " soles";
+            cout << "\n la conversion se almaceno en " << ptrValor << endl;
+        }
+        else {
+            cout << "No se pudo realizar la conversion";
+        }
+    }
+
+    */
+
+    /*
+    //Ejercicio 6
+
+    int num=0;
+
+   // do {
+        cout << "Ingresa el numero a Invertir" << endl;
+        cin >> num;
+   // } while (num > 999);
+
+    cout << "\n\nEl numero invertido es " << invertirNumero(num);
+    */
+
+    int a;
+    cout << "Ingrese el año: " << endl;
+    cin >> a;
+
+    if (esBisiesto(a)) {
+        cout << "El año es bisiesto";
+    }
+    else {
+        cout << "El año no es bisiesto";
+    }
+    
+}
+
+//implementarFuncion
+void DibujaCuadrado(char c, int n, int x, int y) {
+    
+    //goToXY(0, y);
+    for (int i = 0; i < n; ++i) {
+        //goToXY(x, 0);
+        for (int j = 0; j < n; ++j) {
+            cout << c;
+        }
+        cout << endl;
+    }
+}
+
+void goToXY(int x, int y) {
+    COORD c;
+    c.X = x;
+    c.Y = y;
+    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
+
+}
+
+//Ejercicio 5
+float solesADolares(float dinero) {
+
+    float tc = 3.7;
+    return dinero / tc;
+
+}
+float dolaresASoles(float dinero) {
+
+ 
+    float tcD = 3.4;
+    return dinero * tcD;
+
+}
+
+//Ejercicio 6
+
+int invertirNumero(int num) {
+    int numInv=0;
+
+    // recibo 436
+    // devolver 634
+    while (num > 0) {
+        numInv = numInv * 10 + (num % 10);
+
+        cout << "\nva quedando el numero invertido asi: " << numInv;
+        //1-    0 + 6
+        //2-    60 + 3 ->63
+        //3-    630 + 4  -> 634
+        num = num / 10;
+        //1-    43
+        //2-    4
+        //3-    0
+    }
+
+    return numInv;
+}
+
+//Ejercicio 7
+boolean esBisiesto(int a) {
+
+    boolean res;
+    if (a % 4 == 0 and a % 100 != 0 and a % 400 == 0) {
+
+        res = true;
+    }
+    else {
+        res = false;
+    }
+
+    return res;
+}
