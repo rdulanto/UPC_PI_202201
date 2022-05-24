@@ -1,0 +1,27 @@
+#include <iostream>
+#include <stdio.h>
+using namespace std;
+
+int main() {
+  int *edad;
+
+  cout<<"la direccion de  la memoria estatica"<<edad<<endl;
+
+  edad = new int;
+
+  cout << "la direccion de la memoria dinamica " << edad <<endl;
+
+  delete edad;
+  cout << "la direccion de la memoria dinamica luego del delete " << edad <<endl;
+  edad = NULL;
+  
+  if (edad == NULL){
+    cout << "Ya se libero la memoria" << endl;
+  }
+  else {
+    cout << "No se libero la memoria" << endl;
+  }
+
+
+  
+}
