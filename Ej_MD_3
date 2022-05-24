@@ -1,0 +1,24 @@
+#include <iostream>
+#include <stdio.h>
+using namespace std;
+
+int main() {
+  int *edad;
+  //edad = NULL;
+  
+  edad = new int;
+  *edad = 18;
+  
+  cout << "el valor del puntero es: " << *edad<<endl;
+
+  cout << "la direccion es:"<< edad <<endl;
+
+  if(edad != NULL){
+    cout<<"edad tiene datos"<<endl;
+  } else {
+    cout<<"edad no tiene datos"<<endl;
+  }
+  
+  delete edad;
+  edad = NULL;
+}
