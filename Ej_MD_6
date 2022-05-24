@@ -1,0 +1,32 @@
+#include <iostream>
+#include <stdio.h>
+
+using namespace std;
+int numero;
+
+int main() {
+  //creando el puntero
+  int *edad;
+  //memoria dinamica
+  edad = new int;
+  //numero = 10;
+
+  *edad = 18;
+  
+  cout<<"el valor almacenado es: "<< *edad<<endl;
+  cout<<"la direccion de la memoria dinamica es: "<<edad;
+
+  
+
+  float *moneda = new float;
+
+  *moneda = 3.65;
+
+  cout<<"el valor de la moneda es: "<<*moneda<<endl;
+  cout<<"la direccion de la memoria asignada es: "<<moneda<<endl;
+  
+
+  // eliminamos la asignacion del espacio de memoria
+  delete edad;
+  delete moneda;
+}
