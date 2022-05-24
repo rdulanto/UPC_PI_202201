@@ -1,0 +1,25 @@
+#include <iostream>
+#include <stdio.h>
+using namespace std;
+
+int main() {
+  float *num1, *num2;
+
+  num1 = new float;
+  num2 = new float;
+
+  cout<<"Ingrese valor 1: "<<endl;
+  cin >> *num1;
+  cout<<"Ingrese valor 2: "<<endl;
+  cin >> *num2;
+
+  //operando con las variables
+  cout<<"la suma es: "<< *num1 + *num2<<endl;
+
+  cout << "la resta es: "<< *num1 - *num2<<endl;
+
+  //elminando m.dinamica
+  delete num1;
+  delete num2;
+  
+}
