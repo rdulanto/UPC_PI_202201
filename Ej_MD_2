@@ -1,0 +1,22 @@
+#include <iostream>
+#include <stdio.h>
+using namespace std;
+
+int main() {
+  int *strP;
+  strP = new int;
+  
+  if (strP == NULL){
+    cout<<"No se pudo asignar a la memoria"<<endl;
+  }
+  else {
+    cout<<"Ingrese un valor"<<endl;
+    cin >> *strP;
+
+    *strP += 5;
+    cout<<"El valor incrementado es: " << *strP;
+
+    delete strP;
+    strP = NULL;
+  }
+}E
