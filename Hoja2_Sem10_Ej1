@@ -1,0 +1,77 @@
+#include <iostream>
+#include <stdio.h>
+#include <cmath>
+using namespace std;
+
+//declarando funciones
+int factorial(int);
+double exponencial(int, int);
+void menu();
+
+int main() {
+
+  menu();
+  
+}
+
+void menu(){
+
+  int opc, dato, exp;
+
+  do{
+    cout<<"\t .:Menu Principal:.\n";
+    cout<<"1. Determinar el factorial de un número"<<endl;
+    cout<<"2. Calcular el valor de ea"<<endl;
+    cout<<"3. Salir"<<endl;
+    cout<<"Opcion:_";
+    cin>>opc;
+
+    switch(opc){
+      case 1:
+              cout<<"Ingrese un numero\n";
+              cin>>dato;
+              cout << endl << "Factorial de " << dato << " -> " << factorial(dato) << endl; 
+              break;
+      
+      case 2:
+              cout<<"Ingrese un numero base\n";
+              cin>>dato;
+              cout<<"Ingrese el exponente\n";
+              cin>>exp;
+              cout << endl << "El cálculo de la exponencial de un número real de" << dato << " -> " << exponencial(dato, exp) << endl;              
+              break;
+            
+    }
+    
+  }while(opc!=3);
+  cout<<"\t .:FIN DEL PROGRAMA:.\n";
+}
+
+
+int factorial(int dato){
+  //3
+  int *n,i;
+  int factorial = 1; 
+  n = new int;
+  *n = dato;
+   
+   for(i=1;i<=*n;i++)
+        factorial = factorial * i;
+  /*
+   cout << endl << "Factorial de " << *n << " -> " << factorial << endl;
+  cout << endl << "La direccion de la memoria dinamica utilizada es " << n  << endl;
+
+  cout << endl << endl;
+  */
+  delete n;
+  n=NULL;
+  return factorial;
+}
+
+double exponencial(int dato, int exp){
+  
+   double sum = 0;
+    for (int i = 0; i <= exp; i++)
+        sum += pow(dato, i) / factorial(i);
+    return sum;
+}
