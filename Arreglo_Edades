@@ -1,0 +1,78 @@
+#include <iostream>
+using namespace std;
+
+void edades();
+void edades2();
+void numMayor();
+
+int main() {
+  numMayor();
+}
+
+void edades(){
+  int alumnos, *VEdad;
+  cout << "¿Cuantos alumnos son? ";
+  cin >> alumnos;
+
+  VEdad = new int[alumnos];
+
+  for(int i=0; i<alumnos; i++){
+    cout<<"\nIngrese la edad del alumno "<<i+1 <<": ";
+    cin>>VEdad[i];
+    
+  }
+
+  for(int i=0;i<alumnos;i++){
+    cout<<"La edad del alumno "<<i+1<<" es: "<< VEdad[i]<<endl;
+  }
+}
+
+void edades2(){
+  int alumnos, *VEdad, sumaEdades=0;
+  double promEdad;
+  cout << "¿Cuantos alumnos son? ";
+  cin >> alumnos;
+
+  VEdad = new int[alumnos];
+
+  srand(time(NULL));
+  for(int i=0; i<alumnos; i++){
+    //valor aleatorio entre 12 y 16
+    VEdad[i] = 12 + rand() % (17-12);
+    sumaEdades += VEdad[i];
+    
+  }
+
+  for(int i=0;i<alumnos;i++){
+    cout<<"La edad del alumno "<<i+1<<" es: "<< VEdad[i]<<endl;
+  }
+
+  promEdad = sumaEdades / alumnos;
+  cout<<"\n El promedio de edades de los " << alumnos <<" alumnos es :" << promEdad;
+}
+
+
+void numMayor(){
+  int mayor;
+  int *Numero = new int[100];
+  srand(time(NULL));
+  for (int i= 0; i<100; i++){
+    Numero[i]= 1 + rand() %1000;
+    
+  }
+
+  for(int i = 0; i<100; i++){
+    cout << Numero[i] << endl;
+    }
+  
+
+  mayor = Numero[0];
+  for(int i = 1; i<100; i++){
+    if (Numero[i] > mayor){
+      mayor = Numero[i];
+    }
+  }
+
+  cout << "El mayor numero es "<<  mayor;
+  
+}
