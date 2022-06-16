@@ -1,0 +1,116 @@
+#include <iostream>
+using namespace std;
+/*
+Los datos de las personas es: sexo, día de nacimiento, mes de
+nacimiento y año de nacimiento.
+Después deberá repetir lo siguiente: preguntar un número de
+mes y mostrar en pantalla los datos de las personas que
+cumplan años durante ese mes. El proceso terminará de
+repetirse cuando se teclee 0 como número de mes.
+*/
+
+struct sFecha{
+  int dia;
+  int mes;
+  int anio;
+};
+
+//estructura Anidada
+struct sPersona{
+  char sexo;
+  sFecha fNacimiento;
+};
+
+//declarando arreglo
+sPersona *vPersona;
+
+
+//declarando funciones
+void registrarPersonas(int);
+void buscarPersonas(int, int);
+void menu();
+
+int main() {
+  menu();
+}
+
+//implementando funciones
+
+void menu(){
+  int opc, cantP, vmes;
+
+  do{
+    cout<<"<<---Menu de opciones-->>\n";
+    cout<<"---------------------\n";
+    cout<<"1. Registrar personas\n";
+    cout<<"2. Buscar personas\n";
+    cout<<"3. Salir.\n";
+    cout<<"Opcion:__\n";
+    cin>>opc;
+
+    switch(opc){
+      case 1:
+              cout<<"Ingrese la cantidad de personas a registrar: ";
+              cin>>cantP;
+              vPersona = new sPersona[cantP];
+              registrarPersonas(cantP);
+              cout << "\n se registraron a las "<<cantP<<" personas.\n";
+        
+                break;
+      case 2:
+              cout<<"Ingrese el mes de nacimiento de la persona: ";
+              cin>>vmes;
+              buscarPersonas(vmes, cantP);
+                break;
+    }
+    
+    
+  } while (opc!=3);
+
+  cout<<"Fin del programa!\n\n";
+}
+
+void registrarPersonas(int cant){
+
+  char sexoP;
+  int dia, mes, anio, rSexo;
+
+cout<<"\n Registrando datos de las "<< cant << " personas";
+  
+  srand(time(NULL));
+  for(int i=0; i<cant; i++){
+    dia = 1 + rand() % 30;
+    mes = 1 + rand() % 12;
+    anio = 1990 + rand() % (2008-1990);
+    rSexo = rand() % 2;
+
+    if (rSexo==0){
+      sexoP='m';
+    }
+    else{
+      sexoP = 'f';
+    }
+
+    vPersona[i].sexo = sexoP;
+    vPersona[i].fNacimiento.dia = dia;
+    vPersona[i].fNacimiento.mes = mes;
+    vPersona[i].fNacimiento.anio = anio;
+    
+  }
+  
+}
+
+void buscarPersonas(int mes, int cant){
+
+  for(int i=0; i<cant; i++){
+    if(mes == vPersona[i].fNacimiento.mes){
+      cout<<endl<<"Persona encontrada\n";
+      cout<< " -> sexo: " << vPersona[i].sexo;
+      cout<<"\n Su fecha de nacimiento es: "<<endl;
+      cout<< " -> dia: " << vPersona[i].fNacimiento.dia<<endl;
+      cout<< " -> mes: " << vPersona[i].fNacimiento.mes<<endl;
+      cout<< " -> anio: " << vPersona[i].fNacimiento.anio<<endl;
+    }
+    
+  }
+}
