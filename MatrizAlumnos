@@ -1,0 +1,91 @@
+#include <iostream>
+using namespace std;
+
+
+
+int main() {
+
+  //declarando arreglo
+  int ** alumnos;
+
+  //instanciando las filas
+  alumnos = new int *[30];
+
+  for (int i=0; i <30; i++){
+    alumnos[i] = new int[6];
+  }
+/*
+  alumnos[0][1]= 6;
+
+  cout<<"El alumno 1 en su practica 2 obtuvo: "<< alumnos[0][1];
+  */
+
+  //registrar notas aleatorias
+  srand(time(NULL));
+  for(int i=0;i<30;i++){
+    for(int j=0; j<6;j++){
+      //cout<<"Del alumno " << i+1 << " ingresa su nota " << j+1 <<": ";
+      alumnos[i][j]=rand()%20;
+      //cin>>alumnos[i][j];
+    }
+  }
+
+  //imprimir los valores de la matriz
+
+
+  cout<<"alumno   n1 n2 n3 n4 n5 n6"<<endl;
+  for(int x=0;x<30;x++){
+    cout<<"Alumno "<< x+1 <<": ";
+    for(int y=0;y<6;y++){
+      cout<<alumnos[x][y]<<"  ";
+    }
+    cout<<endl;
+  }
+
+
+  //buscar un elemento: nota 18
+  int vBuscado,contador=0, valorMayor, valorMenor;
+  bool encontro=false;
+  cout<<endl<<"ingresa la nota buscada: ";
+  cin>>vBuscado;
+
+  valorMayor=alumnos[0][0];
+  valorMenor=alumnos[0][0];
+  
+  for(int m=0;m<30;m++){
+    for(int n=0; n<6;n++){
+      if(alumnos[m][n]==vBuscado && contador==0){
+        cout<<"El alumno "<<m+1<< " obtuvo en su pc"<<n+1<< " la nota de "<<alumnos[m][n]<<endl;
+        encontro = true;
+        contador++;
+      }      
+    }
+  }
+
+
+  //para hallar el valor mayor y menor de la matriz
+for (int u=0;u<30;u++){
+  for(int v=0;v<6;v++){
+    if(alumnos[u][v]>valorMayor){
+      valorMayor = alumnos[u][v];
+    }
+
+    if(alumnos[u][v]<valorMenor){
+      valorMenor = alumnos[u][v];
+    }
+  }
+}
+  
+  if (encontro){
+    cout<<endl<<"Se encontraron " << contador << " coincidencias";    
+  } else {
+    cout << "No se encontraron coincidencias";
+  }
+
+  cout<<endl<<"La nota mayor es: "<< valorMayor;
+  cout <<endl<<"La nota menor es: " << valorMenor;
+    
+
+   
+  
+}
