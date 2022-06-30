@@ -1,0 +1,118 @@
+// propuestoArrar1-2.cpp : This file contains the 'main' function. Program execution begins and ends there.
+//
+
+#include <iostream>
+using namespace std;
+
+/*El Gerente de una empresa de taxis que tiene a su cargo 20 conductores desea registrar de cada
+uno de ellos la cantidad de pasajeros que ha transportado durante los 6 días que laboran, razón
+por la cual le ha solicitado escribir un programa en C++ que permita realizar lo siguiente:
+a) Genere aleatoriamente la cantidad de pasajeros transportados (un valor entre 1 y 25)
+diariamente por cada conductor. Esta información será almacenada en una matriz.
+b) Imprima la matriz generada.
+c) Determine e imprima para cada conductor, el total de pasajeros transportados durante la
+semana.
+d) Determine e imprima para cada día, el promedio de pasajeros transportados.
+e) Determine e imprima el día o días en que se registró el mayor número total de pasajeros
+transportados.*/
+
+//declarar la funcion
+void generarPasajeros();
+void imprimirPasajeros();
+void imprimirPasajerosSemana();
+void imprimirPasajerosConductor();
+void imprimirPasajerosMayor();
+
+int** pasajeros;
+
+int main()
+{
+	generarPasajeros();
+	imprimirPasajeros();
+	imprimirPasajerosConductor();
+	imprimirPasajerosSemana();
+	imprimirPasajerosMayor();
+
+
+}
+
+//usando funcion
+void generarPasajeros() {
+	//declarando la matriz
+	pasajeros = new int*[20];
+	for (int i = 0; i < 20; i++) {
+		pasajeros[i] = new int[6];
+	}
+
+	//registrar pasajeros
+	srand(time(NULL));
+
+	for(int i=0; i<20;i++){
+		for (int j = 0; j < 6; j++) {
+			pasajeros[i][j] = 1+ rand() % (25-1);
+		}
+}
+
+}
+
+void imprimirPasajeros() {
+	for (int i = 0; i < 20; i++) {
+		for (int j = 0; j < 6; j++) {
+			cout << pasajeros[i][j] << " ";
+		}
+		cout << endl;
+	}
+}
+
+void imprimirPasajerosSemana() {
+	int promPasajeros, sumPasajeros=0;
+	cout << endl;
+	for (int j = 0; j < 6; j++) {
+		for (int i = 0; i < 20; i++) {
+			sumPasajeros += pasajeros[i][j];
+		}
+
+		cout << "El promedio de pasajeros transportados en la semana " << j+1 << " es " <<sumPasajeros / 20<<endl;
+		sumPasajeros = 0;
+
+	}
+}
+
+
+void imprimirPasajerosConductor() {
+	int sumPasajeros = 0;
+	cout << endl;
+	for (int i = 0; i < 20; i++) {
+		for (int j = 0; j < 6; j++) {
+			sumPasajeros += pasajeros[i][j];
+		}
+
+		cout << "El total de pasajeros transportados por el conductor " << i + 1 << " es " << sumPasajeros << endl;
+		sumPasajeros = 0;
+
+	}
+}
+
+void imprimirPasajerosMayor() {
+	int mayor = pasajeros[0][0];
+	for (int i = 0; i < 20; i++) {
+		for (int j = 0; j < 6; j++) {
+			
+			if (pasajeros[i][j] > mayor) {
+				mayor = pasajeros[i][j];
+			}
+			
+		}
+	}
+
+	cout << endl;
+	for (int i = 0; i < 20; i++) {
+		for (int j = 0; j < 6; j++) {
+
+			if (pasajeros[i][j] == mayor) {
+				cout<< "El dia " <<j+1<< "se transporto a "<<pasajeros[i][j]<<endl;
+			}
+
+		}
+	}
+}
