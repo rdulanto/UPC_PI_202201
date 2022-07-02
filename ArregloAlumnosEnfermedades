@@ -1,0 +1,47 @@
+int pesoS = 0, contador=0;
+	for (int i = 0; i < alum; i++) {
+		if ((VDatosalumnos[i].gripe == 's') || (VDatosalumnos[i].tos == 's')) {
+			contador++;
+			pesoS += VDatosalumnos[i].peso;
+		}
+	}
+
+	cout << "\nLa cantidad de alumnos con gripe o tos es: " << contador << endl;
+	cout << "El promedio del peso de los alumnos que han tenido alguna enfermedad es: " << pesoS / contador<<endl;
+}
+
+void Listado_ordenado() {
+	/* Implementar la función Listado_ordenado, que imprima el listado de los alumnos
+ordenado descendentemente por el peso.*/
+	
+	//[(s s 30) (s n 28) ( n n 29)]
+	//[(s s 30) ( n n 29) (s n 28)]
+	char auxT, auxG;
+	int auxP;
+	for (int i = 0; i < alum -1 ; i++) {
+		for (int j = i+1; j < alum; j++) {
+			if (VDatosalumnos[i].peso < VDatosalumnos[j].peso) {
+				auxT = VDatosalumnos[i].tos;
+				auxG = VDatosalumnos[i].gripe;
+				auxP = VDatosalumnos[i].peso;
+
+				VDatosalumnos[i].tos = VDatosalumnos[j].tos;
+				VDatosalumnos[i].gripe = VDatosalumnos[j].gripe;
+				VDatosalumnos[i].peso = VDatosalumnos[j].peso;
+				VDatosalumnos[i].alum = j;
+
+				VDatosalumnos[j].tos = auxT;
+				VDatosalumnos[j].gripe = auxG;
+				VDatosalumnos[j].peso = auxP;
+				VDatosalumnos[j].alum = i;
+			}
+		}
+	}
+
+	cout <<endl<< "\talumno \t\ttos \t gripe\t peso" << endl;
+
+	for (int i = 0; i < alum; i++) {
+		cout << "\talumno " << i + 1 << "\t " << VDatosalumnos[i].tos << "\t " << VDatosalumnos[i].gripe << "\t " << VDatosalumnos[i].peso << endl;
+	}
+
+}
